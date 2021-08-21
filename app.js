@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static('public'));
 
 const indexRouter = require('./routes/index');
-app.use('/', indexRouter)
+app.use('/', indexRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening at localhost:${port}`);

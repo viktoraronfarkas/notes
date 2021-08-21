@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* ----------------------------------------------------------------------------------------------------
+Super Form Reset: https://gist.github.com/anthonyshort/552543
+A couple of things to watch out for:
+- IE8: If a text input doesn't have padding on all sides or none the text won't be centered.
+- The default border sizes on text inputs in all UAs seem to be slightly different. You're better off using custom borders.
+- You NEED to set the font-size and family on all form elements
+- Search inputs need to have their appearance reset and the box-sizing set to content-box to match other UAs
+- You can style the upload button in webkit using ::-webkit-file-upload-button
+- ::-webkit-file-upload-button selectors can't be used in the same selector as normal ones. FF and IE freak out.
+- IE: You don't need to fake inline-block with labels and form controls in IE. They function as inline-block.
+- By turning off ::-webkit-search-decoration, it removes the extra whitespace on the left on search inputs
+----------------------------------------------------------------------------------------------------*/
+input,
+label,
+select,
+button,
+textarea {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  background: none;
+  line-height: 1;
+  /* Browsers have different default form fonts */
+  font-size: 13px;
+  font-family: Arial;
+}
+
+/* Remove the stupid outer glow in Webkit */
+input:focus {
+  outline: 0;
+}
+
+/* Box Sizing Reset
+-----------------------------------------------*/
+/* All of our custom controls should be what we expect them to be */
+input,
+textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* These elements are usually rendered a certain way by the browser */
+button,
+input[type=reset],
+input[type=button],
+input[type=submit],
+input[type=checkbox],
+input[type=radio],
+select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Text Inputs
+-----------------------------------------------*/
+/* Button Controls
+-----------------------------------------------*/
+input[type=checkbox],
+input[type=radio] {
+  width: 13px;
+  height: 13px;
+}
+
+/* File Uploads
+-----------------------------------------------*/
+/* Search Input
+-----------------------------------------------*/
+/* Make webkit render the search input like a normal text field */
+input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+}
+
+/* Turn off the recent search for webkit. It adds about 15px padding on the left */
+::-webkit-search-decoration {
+  display: none;
+}
+
+/* Buttons
+-----------------------------------------------*/
+button,
+input[type=reset],
+input[type=button],
+input[type=submit] {
+  /* Fix IE7 display bug */
+  overflow: visible;
+  width: auto;
+}
+
+/* IE8 and FF freak out if this rule is within another selector */
+::-webkit-file-upload-button {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+/* Textarea
+-----------------------------------------------*/
+textarea {
+  /* Move the label to the top */
+  vertical-align: top;
+  /* Turn off scroll bars in IE unless needed */
+  overflow: auto;
+}
+
+.login,
+.register {
+  overflow: hidden;
+  position: relative;
+}
+.login .hero,
+.register .hero {
+  height: 100vh;
+  width: calc(50vw - 90px);
+}
+.login .login-form,
+.login .register-form,
+.register .login-form,
+.register .register-form {
+  max-width: 295px;
+  text-align: center;
+  padding: 90px;
+  position: relative;
+  left: 59vw;
+}
+.login .login-form h2,
+.login .register-form h2,
+.register .login-form h2,
+.register .register-form h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 2.25rem;
+  margin-bottom: 90px;
+}
+.login .login-form input,
+.login .register-form input,
+.register .login-form input,
+.register .register-form input {
+  width: 295px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  font-family: "Inter", sans-serif;
+  font-size: 1.125rem;
+  color: #444444;
+}
+.login .login-form button,
+.login .register-form button,
+.register .login-form button,
+.register .register-form button {
+  width: 80px;
+  height: 25px;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.login p,
+.register p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: #000;
+  margin-top: 85px;
+}
+.login p a,
+.register p a {
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: underline;
+  color: #000;
+}
+
+.hero {
+  background-color: #E8EDF0;
+  position: absolute;
+  padding: 90px 0 90px 90px;
+  left: 0;
+  top: 0;
+}
+.hero h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 3rem;
+  letter-spacing: -0.075em;
+  margin-bottom: 50px;
+}
+.hero p {
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  width: 28.75rem;
+}
+
+/*# sourceMappingURL=main.css.map */
