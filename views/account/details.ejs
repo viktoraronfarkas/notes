@@ -37,15 +37,20 @@
         </div>
     </div>
     <div class="details">
-        <div class="item">
-            <h2 id="name"><%= user %></h2>
-            <img src="../assets/edit.svg">
-        </div>
-        <div class="item">
-            <p id="email"><%= email %></p>
-            <img src="../assets/edit.svg">
-        </div>
-        <button type="submit" id="save">Save changes</button>
+        <form method="post">
+            <div class="item">
+                <h2 id="name"><%= user %></h2>
+                <input id="name-input" name="name" value="<%= user %>">
+                <img class="edit" src="../assets/edit.svg">
+            </div>
+            <div class="item">
+                <p id="email"><%= email %></p>
+                <input id="email-input" name="email" value="<%= email %>">
+            </div>
+            <input type="hidden" name="id" value="<%= id %>">
+            <button type="submit" id="save">Save changes</button>
+        </form>
+        <p class="attention">Attention! Saving these changes will log you out.</p>
     </div>
 </div>
 
@@ -53,6 +58,12 @@
   const openDropdown = document.querySelector('.dropdown');
   const closeDropdown = document.querySelector('#close');
   const menu = document.querySelector('.menu');
+  const edit = document.querySelector('.edit');
+  const name = document.querySelector('#name');
+  const email = document.querySelector('#email');
+  const nameInput = document.querySelector('#name-input');
+  const emailInput = document.querySelector('#email-input');
+
 
   openDropdown.addEventListener('click', function (event) {
     menu.classList.remove('closed');
@@ -62,6 +73,13 @@
   closeDropdown.addEventListener('click', function (event) {
     menu.classList.remove('open');
     menu.classList.add('closed');
+  });
+
+  edit.addEventListener('click', function (event) {
+    name.style.display = 'none';
+    email.style.display = 'none';
+    nameInput.style.display = 'block';
+    emailInput.style.display = 'block';
   });
 </script>
 </body>

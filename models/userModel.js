@@ -21,7 +21,7 @@ function getUser(uid, cb) {
   })
 }
 
-function updateUser(cb, userData) {
+function updateUser(userData, cb) {
   let sql = "UPDATE ccl2_users SET" +
     " name = "+ db.escape(userData.name) +
     ", email = "+ db.escape(userData.email) +

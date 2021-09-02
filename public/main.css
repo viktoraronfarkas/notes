@@ -429,7 +429,9 @@ a {
   margin-bottom: 15px;
   position: relative;
 }
-.account .main .details .item p {
+.account .main .details .item p,
+.account .main .details .item #email-input,
+.account .main .details .item #name-input {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   font-weight: 400;
@@ -445,17 +447,33 @@ a {
   font-size: 1.5rem;
   color: #000000;
 }
+.account .main .details .item #name-input {
+  position: absolute;
+  left: 0;
+  top: -5px;
+}
+.account .main .details .item #email-input {
+  margin-top: 40px;
+}
 .account .main .details .item input {
-  width: 100%;
+  width: 300px;
   height: 40px;
   border: 1px solid #000000;
   border-radius: 4px;
   padding: 10px 15px;
   margin-bottom: 20px;
   font-size: 1rem;
+  display: none;
 }
 .account .main .details #save {
   margin-top: 30px;
+}
+.account .main .details .attention {
+  margin-top: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #B41B24;
 }
 .account .main .danger {
   position: relative;

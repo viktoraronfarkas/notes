@@ -29,7 +29,9 @@
         margin-bottom: 15px;
         position: relative;
 
-        p {
+        p,
+        #email-input,
+        #name-input {
           font-family: 'Montserrat', sans-serif;
           font-size: 1rem;
           font-weight: 400;
@@ -48,19 +50,38 @@
           color: #000000;
         }
 
+        #name-input {
+          position: absolute;
+          left: 0;
+          top: -5px;
+        }
+
+        #email-input {
+          margin-top: 40px;
+        }
+
         input {
-          width: 100%;
+          width: 300px;
           height: 40px;
           border: 1px solid #000000;
           border-radius: 4px;
           padding: 10px 15px;
           margin-bottom: 20px;
           font-size: 1rem;
+          display: none;
         }
       }
 
       #save {
         margin-top: 30px;
+      }
+
+      .attention {
+        margin-top: 30px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #B41B24;
       }
     }
 

@@ -39,7 +39,8 @@ router.route('/login')
       if (err) {
         res.sendStatus(500);
       }
-      authenticationService.authenticateUser(req.body, users, res)});
+      authenticationService.authenticateUser(req.body, users, res);
+    });
   });
 
 router.get('/logout', (req, res) => {
@@ -63,7 +64,6 @@ router.post('/app', (req, res) => {
       console.log(err);
       res.sendStatus(500);
     }
-    res.locals.note = req.body.id;
     res.redirect('back');
   })
 });
@@ -95,10 +95,22 @@ router.get('/account', (req, res) => {
 router.get('/account/details', (req, res) => {
   authenticationService.getUserFromJWT(req, res, () => {
     res.render('account/details', {
+      id: req.user.id,
       user: req.user.name,
       email: req.user.email,
     });
   })
+});
+
+router.post('/account/details', (req, res) => {
+  console.log(req.body);
+  userModel.updateUser(req.body, (err) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
+    res.redirect('/logout');
+  });
 });
 
 router.get('/account/danger-zone', (req, res) => {
