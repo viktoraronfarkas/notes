@@ -1,0 +1,34 @@
+.not-found {
+  text-align: center;
+  padding: 110px;
+
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 30px;
+  }
+
+  p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 50px;
+    line-height: 1.5rem;
+  }
+
+  button {
+    width: 200px;
+    height: 40px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    text-align: center;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 20px;
+    cursor: pointer;
+  }
+}

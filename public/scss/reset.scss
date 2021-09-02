@@ -63,7 +63,8 @@ input:focus
 
 /* All of our custom controls should be what we expect them to be */
 input,
-textarea
+textarea,
+div
 {
   -webkit-box-sizing:border-box;
   -moz-box-sizing:border-box;
@@ -169,4 +170,10 @@ textarea
 
   /* Turn off scroll bars in IE unless needed */
   overflow:auto;
+}
+
+/* Anchor tags
+-----------------------------------------------*/
+a {
+  text-decoration: none;
 }

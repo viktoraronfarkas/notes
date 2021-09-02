@@ -8,7 +8,7 @@
 <%- include('partials/hero.ejs') %>
 <div class="register-form">
     <h2>Sign up</h2>
-    <form>
+    <form method="post">
         <input type="text" id="email" name="email" placeholder="john.doe@mail.com">
         <br />
         <input type="text" id="name" name="name" placeholder="John Doe">
@@ -18,9 +18,6 @@
         <button type="submit" id="register">Sign up</button>
     </form>
     <p>Already have an account? <a href="/login">Log in here.</a></p>
-</div>
-<div>
-
 </div>
 </body>
 </html>

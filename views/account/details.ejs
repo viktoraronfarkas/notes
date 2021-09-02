@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>My account</title>
+    <link rel="stylesheet" href="../main.css">
+</head>
+<body class="app account">
+<div class="sidebar">
+    <h3>My account</h3>
+    <div class="nav">
+        <a href="/account/details">
+            <div class="nav-item selected">
+                <h4>Personal details</h4>
+            </div>
+        </a>
+        <a href="/account/danger-zone">
+            <div class="nav-item danger">
+                <h4>Danger zone</h4>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="main">
+    <div class="header">
+        <div class="dropdown">
+            <h3><%= user %></h3>
+            <img src="../assets/open.svg">
+        </div>
+        <div class="menu closed">
+            <img src="../assets/close.svg" id="close">
+            <h3><%= user %></h3>
+            <div class="navigation">
+                <a href="/account">My account</a>
+                <a href="/about">About</a>
+            </div>
+            <a href="/logout">Log out</a>
+        </div>
+    </div>
+    <div class="details">
+        <div class="item">
+            <h2 id="name"><%= user %></h2>
+            <img src="../assets/edit.svg">
+        </div>
+        <div class="item">
+            <p id="email"><%= email %></p>
+            <img src="../assets/edit.svg">
+        </div>
+        <button type="submit" id="save">Save changes</button>
+    </div>
+</div>
+
+<script>
+  const openDropdown = document.querySelector('.dropdown');
+  const closeDropdown = document.querySelector('#close');
+  const menu = document.querySelector('.menu');
+
+  openDropdown.addEventListener('click', function (event) {
+    menu.classList.remove('closed');
+    menu.classList.add('open');
+  });
+
+  closeDropdown.addEventListener('click', function (event) {
+    menu.classList.remove('open');
+    menu.classList.add('closed');
+  });
+</script>
+</body>
+</html>
