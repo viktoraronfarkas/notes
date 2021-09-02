@@ -115,9 +115,37 @@ router.post('/account/details', (req, res) => {
 
 router.get('/account/danger-zone', (req, res) => {
   authenticationService.getUserFromJWT(req, res, () => {
-    res.render('account/danger-zone', {user: req.user.name});
+    res.render('account/danger-zone', {
+      user: req.user.name,
+      passwordHash: req.user.passwordHash,
+      id: req.user.id,
+    });
   })
 });
+
+router.post('/account/danger-zone', (req, res) => {
+  userModel.updatePassword(req.body, (err) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
+    res.redirect('back');
+  });
+});
+
+router.get('/account/delete', (req, res) => {
+  userModel.deleteUser(req.query.id, (err) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
+    res.redirect('/logout');
+  });
+});
+
+router.get('/about', (req, res) => {
+  res.render('about');
+})
 
 router.get('*', (req, res) => {
   res.render('404', {title: 'Page not found | My notes'})

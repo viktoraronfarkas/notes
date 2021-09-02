@@ -41,16 +41,13 @@
         <div class="password-form">
             <h3>Change password</h3>
             <form method="post">
-                <label for="old-pw">Old password</label>
-                <input name="old-pw" id="old-pw" type="password">
-                <label for="new-pw">New password</label>
-                <input name="new-pw" id="new-pw" type="password">
-                <label for="new-pw-again">New password again</label>
-                <input name="new-pw-=again" id="new-pw-again" type="password">
+                <label for="pw">New password</label>
+                <input name="pw" id="new-pw" type="password">
+                <input name="id" type="hidden" value="<%= id %>">
                 <button type="submit" id="change-pw">Submit</button>
             </form>
         </div>
-        <button id="delete-account" type="button">DELETE ACCOUNT</button>
+        <a href="/account/delete?id=<%= id %>"><button id="delete-account" type="button">DELETE ACCOUNT</button></a>
     </div>
 </div>
 

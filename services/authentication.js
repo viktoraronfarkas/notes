@@ -75,4 +75,5 @@ module.exports = {
   authenticateJWT,
   getUserFromJWT,
   getNotesFromJWT,
+  checkPassword,
 };

@@ -37,6 +37,24 @@ function updateUser(userData, cb) {
   })
 }
 
+async function updatePassword(pwData, cb) {
+  let pw = await bcrypt.hash(pwData.pw, 10);
+
+  let sql = "UPDATE ccl2_users SET password = " +
+    db.escape(pw) +
+    "WHERE id = " +
+    parseInt(pwData.id);
+  console.log(sql);
+  db.query(sql, function (err, result, fields) {
+    if (err) {
+      cb(err)
+    } else {
+      console.log(result.affectedRows + " rows have been affected!");
+      cb(null);
+    }
+  })
+}
+
 function deleteUser(uid, cb) {
   let sql = 'DELETE from ccl2_users WHERE id=' + uid;
   console.log(sql);
@@ -72,4 +90,5 @@ module.exports = {
   updateUser,
   addUser,
   deleteUser,
+  updatePassword,
 }
