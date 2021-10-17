@@ -1,0 +1,202 @@
+.app {
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+
+  .sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 465px;
+    height: 100%;
+    border-right: 1px solid #B3B3B3;
+
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #444444;
+      position: relative;
+      top: 35px;
+      left: 35px;
+    }
+
+    .add-note {
+      position: absolute;
+      right: 35px;
+      top: 85px;
+    }
+
+    .nav {
+      width: 100%;
+      margin-top: 150px;
+
+      .nav-item {
+        width: 100%;
+        height: 65px;
+        padding: 10px 35px;
+        cursor: pointer;
+
+        h4 {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 1.125rem;
+          font-weight: 600;
+          color: #000000;
+        }
+
+        &.selected {
+          background-color: #EAEAEA;
+
+          &.danger {
+            background-color: #B41B24;
+
+            h4 {
+              color: #FFFFFF;
+            }
+          }
+        }
+
+        &.danger {
+          h4 {
+            color: #B41B24;
+          }
+        }
+      }
+    }
+  }
+
+  .main {
+    position: absolute;
+    width: calc(100% - 465px);
+    height: 100%;
+    top: 0;
+    left: 465px;
+
+    .header {
+      position: relative;
+      width: 100%;
+      height: 80px;
+      top: 0;
+      left: 0;
+      border-bottom: 1px solid #B3B3B3;
+
+      .dropdown {
+        cursor: pointer;
+        display: inline-flex;
+        position: absolute;
+        right: 30px;
+        top: 40px;
+
+        h3 {
+          color: #0E51D2;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: 1.25rem;
+          margin-right: 20px;
+        }
+      }
+
+      .menu {
+        width: 220px;
+        height: 220px;
+        border: 1px solid #B3B3B3;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        position: absolute;
+        text-align: center;
+        padding: 30px 30px 20px;
+        right: 21px;
+        top: 9px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: #444444;
+        z-index: 1;
+
+        #close {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+        }
+
+        h3 {
+          font-size: 1.25rem;
+          font-weight: 700;
+        }
+
+        .navigation {
+          margin: 35px 0 25px;
+
+          a {
+            font-size: 1.125rem;
+            color: #0E51D2;
+            display: block;
+            margin-bottom: 10px;
+          }
+        }
+
+        a {
+          font-size: 1.125rem;
+          color: #444444;
+        }
+
+        &.open {
+          display: block;
+        }
+
+        &.closed {
+          display: none;
+        }
+      }
+    }
+
+    .notes {
+      position: relative;
+      top: 70px;
+      left: 110px;
+      text-align: left;
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+      .delete-note {
+        position: absolute;
+        top: 0;
+        right: 145px;
+      }
+
+      .item {
+        &.hidden {
+          display: none;
+        }
+      }
+
+      .note-title {
+        font-family: 'Montserrat', sans-serif;
+        display: block;
+        height: 30px;
+        width: 755px;
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #000000;
+        margin-bottom: 40px;
+        padding: 0 5px;
+      }
+
+      .note-text {
+        padding: 5px;
+        width: 755px;
+        min-height: 350px;
+        overflow-y: visible;
+        display: block;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 1.125rem;
+        line-height: 25px;
+        color: #000000;
+      }
+    }
+  }
+}

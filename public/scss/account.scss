@@ -1,0 +1,146 @@
+.account {
+  .main {
+    .details,
+    .settings,
+    .danger {
+      position: relative;
+      top: 70px;
+      left: 110px;
+    }
+
+    button {
+      width: 200px;
+      height: 40px;
+      border: 1px solid #000000;
+      border-radius: 4px;
+      text-align: center;
+      color: #000000;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 20px;
+      cursor: pointer;
+    }
+
+    .details {
+      .item {
+        width: 350px;
+        display: flex;
+        margin-bottom: 15px;
+        position: relative;
+
+        p,
+        #email-input,
+        #name-input {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 1rem;
+          font-weight: 400;
+        }
+
+        img {
+          position: absolute;
+          right: 0;
+          cursor: pointer;
+        }
+
+        #name {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 600;
+          font-size: 1.5rem;
+          color: #000000;
+        }
+
+        #name-input {
+          position: absolute;
+          left: 0;
+          top: -5px;
+        }
+
+        #email-input {
+          margin-top: 40px;
+        }
+
+        input {
+          width: 300px;
+          height: 40px;
+          border: 1px solid #000000;
+          border-radius: 4px;
+          padding: 10px 15px;
+          margin-bottom: 20px;
+          font-size: 1rem;
+          display: none;
+        }
+      }
+
+      #save {
+        margin-top: 30px;
+      }
+
+      .attention {
+        margin-top: 30px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #B41B24;
+      }
+    }
+
+    .danger {
+      position: relative;
+
+      h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #B41B24;
+        margin-bottom: 50px;
+      }
+
+      .password-form {
+        width: 295px;
+        margin-bottom: 60px;
+
+        h3 {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: #000000;
+          margin-bottom: 20px;
+        }
+
+        form {
+          width: 100%;
+          flex-direction: column;
+
+          label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #000000;
+            margin-bottom: 10px;
+          }
+
+          input {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+          }
+        }
+      }
+
+      #delete-account {
+        border: 1px solid #B41B24;
+        color: #B41B24;
+
+        &:hover {
+          color: #FFFFFF;
+          background-color: #B41B24;
+        }
+      }
+    }
+  }
+}

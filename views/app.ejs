@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>My Notes</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="app">
+    <div class="sidebar">
+        <h3>My notes</h3>
+        <a class="add-note" href="/app/new"><img src="../assets/add.svg" /></a>
+        <div class="nav">
+            <% for (let i = 0; i < notes.length; i++) { %>
+                <a onclick="openNote(<%= i %>)">
+                    <div id="item<%= i %>" class="nav-item">
+                        <h4><%= notes[i].title %></h4>
+                    </div>
+                </a>
+            <% } %>
+        </div>
+    </div>
+    <div class="main">
+        <div class="header">
+            <div class="dropdown">
+                <h3><%= user.name %></h3>
+                <img src="../assets/open.svg">
+            </div>
+            <div class="menu closed">
+                <img src="../assets/close.svg" id="close">
+                <h3><%= user.name %></h3>
+                <div class="navigation">
+                    <a href="/account">My account</a>
+                    <a href="/about">About</a>
+                </div>
+                <a href="/logout">Log out</a>
+            </div>
+        </div>
+        <div class="notes">
+            <% for (let i = 0; i < notes.length; i++) { %>
+                <form method="post" class="item hidden" id="note-body<%= i %>">
+                    <a class="delete-note" href="/app/delete?id=<%= notes[i].id %>"><img src="../assets/delete.svg" /></a>
+                    <input type="hidden" name="id" value="<%= notes[i].id %>">
+                    <input type="text" name="title" class="note-title" id="title<%= i %>" value="<%= notes[i].title %>" autocomplete="off" />
+                    <textarea name="text" class="note-text" id="text<%= i %>" value="<%= notes[i].text %>"><%= notes[i].text %></textarea>
+                </form>
+            <% } %>
+        </div>
+    </div>
+
+    <script>
+      const openDropdown = document.querySelector('.dropdown');
+      const closeDropdown = document.querySelector('#close');
+      const menu = document.querySelector('.menu');
+
+      openDropdown.addEventListener('click', function (event) {
+        menu.classList.remove('closed');
+        menu.classList.add('open');
+      });
+
+      closeDropdown.addEventListener('click', function (event) {
+        menu.classList.remove('open');
+        menu.classList.add('closed');
+      });
+
+      const openNote = (id) => {
+        let items = document.querySelectorAll('a div[id^=item]');
+        let noteBodyItems = document.querySelectorAll('form[id^=note-body]');
+
+        items.forEach((item) => {
+          item.classList.remove('selected');
+        });
+
+        noteBodyItems.forEach((item) => {
+          item.classList.add('hidden');
+        });
+
+        document.querySelector('#item' + id).classList.add('selected');
+        document.querySelector('#note-body' + id).classList.remove('hidden');
+      }
+
+      //auto-save note
+      let timeoutId;
+      const autoSave = (e) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(function() {
+          // Runs 2 seconds (2000 ms) after the last change
+          $(e.target).parent('form').submit();
+        }, 3000);
+      }
+
+      $('.note-title').on('input propertychange change', autoSave);
+
+      $('.note-text').on('input propertychange change', autoSave);
+    </script>
+</body>
+</html>
